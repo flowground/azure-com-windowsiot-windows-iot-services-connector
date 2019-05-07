@@ -1,0 +1,118 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                                "id": {
+                                    "description": "Fully qualified resource Id for the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "The type of the resource.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "x-ms-azure-resource": true,
+                            "type": "object"
+                        }
+                    ],
+                    "description": "The resource model definition for a ARM tracked top level resource",
+                    "properties": {
+                        "location": {
+                            "description": "The Azure Region where the resource lives",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read",
+                                "create"
+                            ]
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags.",
+                            "type": "object",
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The description of the Windows IoT Device Service.",
+            "properties": {
+                "etag": {
+                    "description": "The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.",
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "The properties of a Windows IoT Device Service.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "adminDomainName": {
+                            "description": "Windows IoT Device Service OEM AAD domain",
+                            "type": "string"
+                        },
+                        "billingDomainName": {
+                            "description": "Windows IoT Device Service ODM AAD domain",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "notes": {
+                            "description": "Windows IoT Device Service notes.",
+                            "type": "string"
+                        },
+                        "quantity": {
+                            "description": "Windows IoT Device Service device allocation,",
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "startDate": {
+                            "description": "Windows IoT Device Service start date,",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "If_Match": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
